@@ -1,0 +1,29 @@
+<h3>Todo's</h3>
+<table>
+  <thead>
+    <tr>
+      <td>Todo-ID</td>
+      <td>Aufgabe</td>
+      <td>Status</td>
+      <td>Person</td>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr *ngFor = "let row of db.todolist | async"> -->
+    <tr *ngFor = "let row of db.todolist.getValue()">
+      <td>{{row.tid}}</td>
+      <td>{{row.text}}</td>
+      <td *ngIf = "!row.status">Offen</td>
+      <td *ngIf = "row.status">Erledigt</td>
+      <td>{{row.pid}}</td>
+      <td><button (click)="deleteTodo(row)">Löschen</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input #task placeholder="Task"></td>
+      <td></td>
+      <td><input #person placeholder="Person"></td>
+      <td><button (click)="insertTodo(task.value, person.value)">Erstellen</button></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,24 @@
+<h1>Todo-Verwaltung </h1>
+<h3>Mitarbeiter</h3>
+<table>
+  <thead>
+    <tr>
+      <td>PID</td>
+      <td>Vorname</td>
+      <td>Nachname</td>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr *ngFor = "let row of db.personen | async"> -->
+    <tr *ngFor = "let row of db.personen.getValue()">
+      <td>{{row.pid}}</td>
+      <td>{{row.firstName}}</td>
+      <td>{{row.lastName}}</td>
+    </tr>
+  </tbody>
+</table>
+<app-todolist></app-todolist>
+<!-- <div *ngFor = "let row of db.personen | async"> -->
+<div *ngFor = "let person of db.personen.getValue()">
+  <app-person [person]="person"></app-person>
+</div>
