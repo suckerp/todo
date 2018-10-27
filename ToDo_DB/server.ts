@@ -96,14 +96,11 @@ app.get('/getpersons', (req,res)=> {
         res.json(error)
     })
 })
-
+*/
 
 app.get('/', (req,res)=>{
-    db.getTodoList()
-    .then(results => {
-        res.json(results)
-    })
-})*/
+    res.send("TEST")
+})
 
 
 const port = 3000
